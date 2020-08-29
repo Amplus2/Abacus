@@ -11,7 +11,7 @@ Uint8List string2int(String s) {
     bits.add(s[i] == '.' ? 1 : 0);
   }
   assert(bits.length % 8 == 0);
-  Uint8List bytes;
+  var bytes = Uint8List(0);
   for (var i = 0; i < bits.length; i += 8) {
     bytes.add(bits[i + 0] << 7 |
         bits[i + 1] << 6 |
