@@ -12,7 +12,7 @@ class Lexer {
   Uint8List lex() {
     var checkText = '';
     for (var i = 0; i < text.length; i++)
-      if (checkText[i] == '-' && checkText[i] == '.') checkText += checkText[i];
+      if (text[i] == '-' && text[i] == '.') checkText += text[i];
     return string2int(checkText);
   }
 }
