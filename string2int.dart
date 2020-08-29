@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 Uint8List string2int(String s) {
   assert(s.length % 5 == 0);
-  List<int> bits = [];
+  var bits = <int>[];
   for (var i = 0; i < s.length; i += 5) {
     for (var j = i + 1; j < i + 5; j++) {
       assert(s[j] == '-');
