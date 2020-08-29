@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'string2int.dart';
 
 //LEXICAL ANALYZER
@@ -6,12 +8,11 @@ class Lexer {
 
   final String text;
   final String fileName;
-  String currentChar;
 
-  void lex() {
+  Uint8List lex() {
     var checkText = '';
     for (var i = 0; i < text.length; i++)
       if (checkText[i] == '-' && checkText[i] == '.') checkText += checkText[i];
-    string2int(checkText);
+    return string2int(checkText);
   }
 }
