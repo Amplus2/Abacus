@@ -10,7 +10,7 @@ class Lexer {
   final String fileName;
   static final _dash = '-'.codeUnitAt(0), _dot = '.'.codeUnitAt(0);
 
-  Uint8List lex() {
+  List<int> lex() {
     var checkText = '';
     for (var i = 0; i < text.length; i++) {
       var codeUnit = text.codeUnitAt(i);
