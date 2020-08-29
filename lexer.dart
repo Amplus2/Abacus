@@ -8,11 +8,14 @@ class Lexer {
 
   final String text;
   final String fileName;
+  static final _dash = '-'.codeUnitAt(0), _dot = '.'.codeUnitAt(0);
 
   Uint8List lex() {
     var checkText = '';
-    for (var i = 0; i < text.length; i++)
-      if (text[i] == '-' && text[i] == '.') checkText = '$checkText${text[i]}';
+    for (var i = 0; i < text.length; i++) {
+      var codeUnit = text.codeUnitAt(i);
+      if (codeUnit == _dash || codeUnit == _dot) checkText += text[i];
+    }
     return string2int(checkText);
   }
 }
