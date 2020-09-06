@@ -38,7 +38,7 @@ class Machine {
 
   Machine(this.mem);
 
-  void cycle() {
+  bool cycle() {
     var addr1 = mem[pc + 0];
     var offs1 = mem[pc + 1];
     var addr2 = mem[pc + 2];
@@ -46,5 +46,11 @@ class Machine {
     var ninsn = mem[pc + 4];
     mem[mem[addr2] + offs2] = mem[mem[addr1] + offs1];
     pc = mem[ninsn];
+    return pc != 0xffffff;
+  }
+
+  static void run(List<int> mem) {
+    var m = Machine(Memory(mem));
+    while (m.cycle());
   }
 }
