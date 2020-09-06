@@ -1,3 +1,14 @@
+final _morse = '-.'.codeUnits;
+
+List<int> lexString2int(final String text) {
+  var s = '';
+  for (var i = 0; i < text.length; i++) {
+    var cu = text.codeUnitAt(i);
+    if (_morse.contains(cu)) s += text[i];
+  }
+  return string2int(s);
+}
+
 List<int> string2int(String s) {
   assert(s.length % 5 == 0);
   var bits = <int>[];
